@@ -140,6 +140,10 @@
             }
         },
 
+        path: function() {
+            return $.map(this.container.find('.ui-state-active'), function(e) { return $.trim($(e).text()); })
+        },
+
         open: function() {
             this.dialog.dialog('open');
             this.groupWidth = this.container.find('.jt-nestedselect-group:first').outerWidth(true);
@@ -148,7 +152,11 @@
 
         close: function(save) {
             if (save) {
-                this._trigger('selected', $.Event('selected'), { value: this.active.attr(this.options.attribute), element: this.active });
+                this._trigger('selected', $.Event('selected'), {
+                    value: this.active.attr(this.options.attribute),
+                    element: this.active,
+                    path: this.path().join(' &gt; ')
+                });
             }
 
             this.dialog.dialog('close');
