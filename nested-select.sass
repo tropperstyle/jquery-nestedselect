@@ -3,6 +3,9 @@
 .jt-nestedselect-wrapper, .jt-nestedselect-dialog
   overflow: hidden !important
 
+.jt-nestedselect-wrapper
+  position: relative
+
 .jt-nestedselect-container
   position: relative
 
@@ -10,7 +13,8 @@
     margin: 0
     padding: 0
     border-width: 0
-    width: 100%
+    float: none !important
+    overflow: hidden
 
   .jt-nestedselect-group
     +inline-block
@@ -18,6 +22,7 @@
     height: 300px
     width: 200px
     overflow: auto
+    overflow-x: hidden
     margin-right: -1px
 
     li
@@ -32,3 +37,4 @@
 
       .ui-icon
         float: right
+
